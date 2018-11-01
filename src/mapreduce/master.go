@@ -9,6 +9,8 @@ import (
 // Master holds all the state that the master needs to keep track of. Of
 // particular importance is registerChannel, the channel that notifies the
 // master of workers that have gone idle and are in need of new work.
+
+
 type Master struct {
 	sync.Mutex
 
@@ -50,6 +52,11 @@ func newMaster(master string) (mr *Master) {
 	return
 }
 
+
+// 顺序执行任务
+
+
+
 // Sequential runs map and reduce tasks sequentially, waiting for each task to
 // complete before scheduling the next.
 func Sequential(jobName string, files []string, nreduce int,
@@ -76,6 +83,8 @@ func Sequential(jobName string, files []string, nreduce int,
 
 // Distributed schedules map and reduce tasks on workers that register with the
 // master over RPC.
+
+// 分布式执行任务
 func Distributed(jobName string, files []string, nreduce int, master string) (mr *Master) {
 	mr = newMaster(master)
 	mr.startRPCServer()

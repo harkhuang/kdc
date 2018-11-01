@@ -8,11 +8,11 @@ func (mr *Master) schedule(phase jobPhase) {
 	var nios int // number of inputs (for reduce) or outputs (for map)
 	switch phase {
 	case mapPhase:
-		ntasks = len(mr.files)
-		nios = mr.nReduce
+		ntasks = len(mr.files)  // 根据文件名字长度随机拆分任务个数
+		nios = mr.nReduce  // 拆分的reduce个数
 	case reducePhase:
-		ntasks = mr.nReduce
-		nios = len(mr.files)
+		ntasks = mr.nReduce     // 拆分的reduce个数
+		nios = len(mr.files)      // 拆分的文件个数
 	}
 
 	fmt.Printf("Schedule: %v %v tasks (%d I/Os)\n", ntasks, phase, nios)
