@@ -6,8 +6,6 @@ import (
 )
 
 
-func main(){
-	fmt.Println(len("aaaaaasd"))
-
-
+func Testxxx(){
+	fmt.Println(len("aaaaaasd")
 }
