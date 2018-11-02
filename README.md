@@ -1,4 +1,4 @@
-# 老司机带你飞系列
+# 实验列表
 
 1. [《 Go 语言实现 MapReduce 框架》](src/mapreduce)
 2. [《 Go 语言实现 Raft 分布式一致性协议》](src/raft)
