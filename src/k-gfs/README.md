@@ -22,7 +22,11 @@
 #### 提问 提问:
 问题: 小文件读写瓶颈不再io 而是在于cpu的计算速度?  如果用nginx的反向代理俩做这件事情,会又什么不同之处呢?? 是否可以做横向比较?
 
-
+####   master 内存中数据的结构
+ + chunk namespace
+ + file namespace
+ + file <---> chunk 映射map
+ + chunk副本存放位置信息
 
 file1->(chunk1   chunk3   chunk5)
 读文件 ->master-> sync (获取分布式读锁)chunk1-client -chunk2-client chunk3-client
